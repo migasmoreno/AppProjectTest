@@ -1,0 +1,17 @@
+{
+    "source": {
+        "repoURL": "https://kyverno.github.io/kyverno",
+        "targetRevision": "2.7.0"
+    },
+    "destination": {
+        "namespace": "kyverno"
+    },
+    "clusters": {
+        "sbox-gkesspk": {
+            "enabled": true
+        },
+        "sbox-gkesspk1": {
+            "enabled": true
+        }
+    }
+}
