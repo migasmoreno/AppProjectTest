@@ -1,10 +1,10 @@
 {
-  "environment": "staging",  # Example configuration parameter
+  "environment": "staging",
   "database": {
     "host": "my-database-host",
     "port": 3306,
     "user": "db_user",
-    "password": "db_password"  # Sensitive information should be secured
+    "password": "db_password"
   },
   "api": {
     "base_url": "https://api.example.com"
