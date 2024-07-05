@@ -6,7 +6,8 @@
         "path": "."
     },
     "destination": {
-        "namespace": "kyverno"
+        "namespace": "kyverno",
+        "server": "https://192.168.2.2"
     },
     "clusters": {
         "sbox-gkesspk": {
