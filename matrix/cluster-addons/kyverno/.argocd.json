@@ -2,7 +2,8 @@
     "source": {
         "repoURL": "https://kyverno.github.io/kyverno",
         "targetRevision": "2.7.0",
-        "chart": "kyverno"
+        "chart": "kyverno",
+        "path": "."
     },
     "destination": {
         "namespace": "kyverno"
