@@ -5,8 +5,7 @@
         "chart": "kyverno"
     },
     "destination": {
-        "namespace": "sbox-gkesspk",
-        "server": "https://192.168.2.2"
+        "namespace": "kyverno"
     },
     "clusters": {
         "sbox-gkesspk": {
