@@ -9,11 +9,11 @@
     },
     "clusters": {
         "sbox-gkesspk1": {
-            "enabled": false,
+            "enabled": true,
             "server": "https://192.168.3.2"
         },
         "sbox-gkesspk": {
-            "enabled": true,
+            "enabled": false,
             "server": "https://192.168.2.2"
         }
     }
