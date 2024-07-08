@@ -8,13 +8,13 @@
         "namespace": "kyverno"
     },
     "clusters": {
-        "sbox-gkesspk": {
-            "enabled": true,
-            "server": "https://192.168.2.2"
-        },
         "sbox-gkesspk1": {
             "enabled": true,
             "server": "https://192.168.3.2"
+        },
+        "sbox-gkesspk": {
+            "enabled": true,
+            "server": "https://192.168.2.2"
         }
     }
 }
