@@ -8,6 +8,9 @@
         "namespace": "kyverno"
     },
     "clusters": {
+        "sbox-gkesspk": {
+            "enabled": true
+        },
         "sbox-gkesspk1": {
             "enabled": true
         }
