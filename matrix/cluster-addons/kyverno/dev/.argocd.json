@@ -1,6 +1,6 @@
 {
     "source": {
-        "repoURL": "https://kyverno.github.io/kyverno",
+        "repoURL": "https://github.com/kyverno/kyverno.git",
         "targetRevision": "2.7.0",
         "chart": "kyverno"
     },
