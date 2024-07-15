@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: infra-spoke-stage
+spec:
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  destinations:
+    - namespace: prod
+      server: https://192.168.3.2
+    - namespace: dev
+      server: https://192.168.2.2
+  sourceRepos:
+    - https://github.com/rferreim/AppProjectTest.git
+    - https://kyverno.github.io/kyverno
+    - https://helm.releases.hashicorp.com
+    - https://github.com/argoproj/applicationset.git

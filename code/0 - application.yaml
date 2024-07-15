@@ -1,0 +1,25 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-application-external-cluster
+spec:
+  destination:
+    namespace: test
+    server: http://192.168.2.0
+  info:
+    - name: ""
+      value: ""
+  project: default
+  source:
+    path: test
+    repoURL: https://github.com/rferreim/AppProjectTest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+

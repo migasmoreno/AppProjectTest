@@ -1,0 +1,56 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-git-two
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  applyNestedSelectors: true
+  generators:
+    - matrix:
+        generators:
+          - matrix:
+              generators:
+                - git:
+                    repoURL: https://github.com/rferreim/AppProjectTest.git
+                    revision: HEAD
+                    files:
+                      - path: "matrix/cluster-addons/**/.argocd.json"
+                - clusters:
+                    selector:
+                      matchLabels:
+                        argocd.argoproj.io/secret-type: cluster
+                        kubernetes.io/environment: '{{.path.basename}}'
+          - list:
+              elements:
+                - appEnabled: '{{ dig "clusters" .name "enabled" false . }}'
+      selector:
+        matchLabels:
+          appEnabled: 'true'
+  template:
+    metadata:
+      name: '{{ .path.basename }}'
+    spec:
+      project: infra-spoke-stage
+      sources:
+        - repoURL: https://github.com/rferreim/AppProjectTest.git
+          targetRevision: HEAD
+          ref: values
+        - repoURL: '{{ .source.repoURL }}'
+          targetRevision: '{{ .source.targetRevision }}'
+          chart: '{{ .source.chart }}'
+          # path: '{{ default "" .source.path }}'
+          helm:
+            valueFiles:
+              - $values/{{ .path.path }}/values.yaml
+              - $values/{{ .path.path }}/values.{{ .name }}.yaml
+      destination:
+        server: '{{ .server }}'
+        namespace: '{{ .path.basename }}'
+      syncPolicy:
+        automated:
+          prune: true
+        syncOptions:
+          - ServerSideApply={{ dig "syncPolicy" "syncOptions" "ServerSideApply" "true" . }}
+          - CreateNamespace={{ dig "syncPolicy" "syncOptions" "ServerSideApply" "true" . }}
