@@ -9,7 +9,7 @@
     },
     "clusters": {
         "sbox-gkesspk1": {
-            "enabled": "false",
+            "enabled": "true",
             "server": "https://192.168.3.2"
         }
     }
