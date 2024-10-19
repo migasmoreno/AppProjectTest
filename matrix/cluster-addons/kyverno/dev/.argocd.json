@@ -8,7 +8,7 @@
         "namespace": "kyverno"
     },
     "clusters": {
-        "sbox-gkesspk": {
+        "omni-nprd-gkesapi1": {
             "enabled": "true",
             "server": "https://192.168.2.2"
         }
